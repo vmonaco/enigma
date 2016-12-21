@@ -132,26 +132,23 @@ def guess_key(keyspace):
     return rotor_positions, stecker
 
 
-def setup():
+def break_enigma():
     # plaintext =  "OBERKOMMANDODERWEHRMACHT"
     # ciphertext = "ZMGERFEWMLKMTAWXTSWVUINZ"
     plaintext = "OBERKOMMANDODERWEHRMACHTOBERKOMMANDODERWEHRMACHTOBERKOMMANDODERWEHRMACHT"
 
     e = create_enigma()
-    unknown_rotor_positions = e.get_rotor_positions()
+    rotor_positions = e.get_rotor_positions()
     rotors = deepcopy(e.rotors)
     reflector = deepcopy(e.reflector)
 
     ciphertext = e.encrypt(plaintext)
-    print "Unknown machine with rotor positions:", unknown_rotor_positions
+    print "Rotor positions:", rotor_positions
     print e
     keyspace = reduce_keyspace(rotors, reflector, plaintext, ciphertext)
     pprint(keyspace)
-    from IPython import embed
-    embed()
-    raise Exception()
     return
 
 
 if __name__ == '__main__':
-    setup()
+    break_enigma()
