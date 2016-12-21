@@ -4,10 +4,10 @@ Created on Aug 4, 2012
 @author: vinnie
 '''
 
+import string
+from collections import Counter
 from enigma import *
 from enigma_factory import *
-from collections import Counter
-import string
 
 def test_reflector():
     
@@ -64,5 +64,5 @@ def test_enigma():
     return
 
 if __name__ == '__main__':
-#    test_rotor()
+    test_rotor()
     test_enigma()
